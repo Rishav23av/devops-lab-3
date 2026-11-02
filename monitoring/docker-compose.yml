@@ -1,0 +1,35 @@
+name: rishav-lab3-monitoring
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: devops-lab3-app:3.0.0
+    ports:
+      - "127.0.0.1:5003:5000"
+    environment:
+      FEATURE_BETA: "${FEATURE_BETA:-false}"
+    volumes:
+      - applogs:/var/log/lab3
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+  grafana:
+    image: grafana/grafana:12.1.1
+    ports:
+      - "127.0.0.1:3300:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "${GRAFANA_PASSWORD:-lab3-local-only}"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+volumes:
+  applogs:
+    name: rishav-lab3-applogs
+  prometheus-data:
+  grafana-data:
