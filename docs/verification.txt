@@ -1,0 +1,18 @@
+Local checks - 18 November 2026
+Rishav | 2301730245
+
+Python 3.14.5: 7 unit tests passed.
+pip-audit: no known vulnerabilities in the runtime requirements.
+Bandit: no findings in app/.
+Docker: application image built and monitoring stack started.
+Prometheus: lab3-app target reported UP.
+Grafana: health API reported database ok.
+Feature flag: /beta returned 404 by default and 200 with FEATURE_BETA=true.
+Selenium: health and enabled beta checks passed in headless Chrome.
+Screenshot: screenshots/beta-browser.png
+ApacheBench: 1000 requests, concurrency 20, 0 failed requests.
+Local load result: 1425.79 requests/second, p95 17 ms.
+Ansible: local and Docker-node plays completed with no failures.
+Terraform 1.17.2: init, fmt -check and validate passed.
+GitHub Actions: Python 3.12 tests, dependency audit, Bandit and Docker build passed.
+ELK ingestion, Terraform apply and the Jenkins image scan were not run locally.

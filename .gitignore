@@ -10,9 +10,6 @@ dist/
 test-results/
 .env
 .DS_Store
-deployment-rendered.yaml
-storage-demo/
-note.txt
 ansible/generated/
 .terraform/
 *.tfstate
