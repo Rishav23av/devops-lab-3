@@ -11,7 +11,7 @@ runs dependency, code and image scans.
 **Monitoring**
 
 ```bash
-docker compose -f monitoring/docker-compose.yml up -d --build
+docker compose -f monitoring/docker-compose.yml up -d --build --wait
 curl http://localhost:5003/
 curl http://localhost:5003/metrics
 ```
