@@ -15,4 +15,11 @@ Local load result: 1425.79 requests/second, p95 17 ms.
 Ansible: local and Docker-node plays completed with no failures.
 Terraform 1.17.2: init, fmt -check and validate passed.
 GitHub Actions: Python 3.12 tests, dependency audit, Bandit and Docker build passed.
-ELK ingestion, Terraform apply and the Jenkins image scan were not run locally.
+ELK: Logstash ingested the application logs; Kibana displayed the events.
+Terraform: created two nginx replicas, then scaled to four.
+Ansible second run: changed=0 and failed=0 on both hosts.
+Jenkins build 1 blocked the Debian image on high/critical findings.
+The Dockerfile now uses Alpine and updates its packages.
+Jenkins build 2 passed pip-audit, Bandit and the unchanged strict Trivy gate.
+Docker Compose started the updated app and passed its health check.
+Nine real run screenshots and seven question-wise PDF reports are included.

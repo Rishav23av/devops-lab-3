@@ -50,3 +50,9 @@ python -m pytest tests/test_app.py -v
 Ansible, Terraform, feature flags, browser testing and security pipeline commands
 are in [docs/lab-record.md](docs/lab-record.md). The Jenkins script is
 `security/Jenkinsfile`. GitHub Actions runs unit tests, security checks and an image build.
+
+**Reports and screenshots**
+
+[Question-wise PDF reports](reports/README.md) | [Run screenshots](docs/screenshots/README.md) | [Command output](docs/commands/)
+
+![Lab 3 run](docs/screenshots/q3-grafana-dashboard.jpg)
