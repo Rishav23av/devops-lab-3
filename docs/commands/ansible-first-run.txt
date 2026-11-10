@@ -1,0 +1,36 @@
+Rishav | Roll no. 2301730245
+18 November 2026
+
+
+PLAY [Record the local lab setup] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+[WARNING]: Host 'localhost' is using the discovered Python interpreter at '/opt/homebrew/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.22/reference_appendices/interpreter_discovery.html for more information.
+ok: [localhost]
+
+TASK [Create the record directory] *********************************************
+ok: [localhost]
+
+TASK [Write student details] ***************************************************
+ok: [localhost]
+
+PLAY [Configure the Docker demo node] ******************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [lab3-node]
+
+TASK [Install nginx] ***********************************************************
+changed: [lab3-node]
+
+TASK [Copy the lab page] *******************************************************
+changed: [lab3-node]
+
+TASK [Start nginx] *************************************************************
+changed: [lab3-node]
+
+TASK [Check the web page] ******************************************************
+ok: [lab3-node]
+
+PLAY RECAP *********************************************************************
+lab3-node                  : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0

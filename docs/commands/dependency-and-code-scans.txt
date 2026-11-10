@@ -1,0 +1,9 @@
+DevOps Lab 3
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ pip-audit -r app/requirements.txt
+
+No known vulnerabilities found
+
+$ bandit -r app/ -q

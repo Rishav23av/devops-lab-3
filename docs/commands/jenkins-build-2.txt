@@ -1,0 +1,284 @@
+Started by user rishav
+Obtained security/Jenkinsfile from git https://github.com/Rishav23av/devops-lab-3.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/devops-lab-3
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/devops-lab-3/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Rishav23av/devops-lab-3.git # timeout=10
+Fetching upstream changes from https://github.com/Rishav23av/devops-lab-3.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/Rishav23av/devops-lab-3.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 02a9ca8cf2e41d80f10bb5b9edbe5c650e475937 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 02a9ca8cf2e41d80f10bb5b9edbe5c650e475937 # timeout=10
+Commit message: "Use an updated Alpine base for the security lab"
+ > git rev-list --no-walk c4a1c0895c1b014f61dc58825e00c14890d52818 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ python3 -m venv .venv
+[Pipeline] sh
++ .venv/bin/python -m pip install -r requirements-dev.txt -r security/requirements.txt
+Requirement already satisfied: Flask==3.1.3 in ./.venv/lib/python3.13/site-packages (from -r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (3.1.3)
+Requirement already satisfied: gunicorn==27.0.1 in ./.venv/lib/python3.13/site-packages (from -r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 2)) (27.0.1)
+Requirement already satisfied: prometheus-client==0.26.0 in ./.venv/lib/python3.13/site-packages (from -r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 3)) (0.26.0)
+Requirement already satisfied: pytest==9.2.0 in ./.venv/lib/python3.13/site-packages (from -r requirements-dev.txt (line 2)) (9.2.0)
+Requirement already satisfied: bandit<2,>=1.8 in ./.venv/lib/python3.13/site-packages (from -r security/requirements.txt (line 1)) (1.9.4)
+Requirement already satisfied: pip-audit<3,>=2.9 in ./.venv/lib/python3.13/site-packages (from -r security/requirements.txt (line 2)) (2.10.1)
+Requirement already satisfied: blinker>=1.9.0 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (1.9.0)
+Requirement already satisfied: click>=8.1.3 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (8.5.1)
+Requirement already satisfied: itsdangerous>=2.2.0 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (2.2.0)
+Requirement already satisfied: jinja2>=3.1.2 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: markupsafe>=2.1.1 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: werkzeug>=3.1.0 in ./.venv/lib/python3.13/site-packages (from Flask==3.1.3->-r /var/jenkins_home/workspace/devops-lab-3/app/requirements.txt (line 1)) (3.1.9)
+Requirement already satisfied: iniconfig>=2 in ./.venv/lib/python3.13/site-packages (from pytest==9.2.0->-r requirements-dev.txt (line 2)) (2.3.1)
+Requirement already satisfied: packaging>=24 in ./.venv/lib/python3.13/site-packages (from pytest==9.2.0->-r requirements-dev.txt (line 2)) (26.3)
+Requirement already satisfied: pluggy<2,>=1.6 in ./.venv/lib/python3.13/site-packages (from pytest==9.2.0->-r requirements-dev.txt (line 2)) (1.7.0)
+Requirement already satisfied: pygments>=2.15 in ./.venv/lib/python3.13/site-packages (from pytest==9.2.0->-r requirements-dev.txt (line 2)) (2.21.0)
+Requirement already satisfied: PyYAML>=5.3.1 in ./.venv/lib/python3.13/site-packages (from bandit<2,>=1.8->-r security/requirements.txt (line 1)) (6.0.3)
+Requirement already satisfied: stevedore>=1.20.0 in ./.venv/lib/python3.13/site-packages (from bandit<2,>=1.8->-r security/requirements.txt (line 1)) (5.10.0)
+Requirement already satisfied: rich in ./.venv/lib/python3.13/site-packages (from bandit<2,>=1.8->-r security/requirements.txt (line 1)) (15.0.0)
+Requirement already satisfied: CacheControl>=0.13.0 in ./.venv/lib/python3.13/site-packages (from CacheControl[filecache]>=0.13.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (0.15.0)
+Requirement already satisfied: cyclonedx-python-lib<12,>=5 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (11.12.0)
+Requirement already satisfied: pip-api>=0.0.28 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (0.0.35)
+Requirement already satisfied: pip-requirements-parser>=32.0.0 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (32.0.1)
+Requirement already satisfied: requests>=2.31.0 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2.34.2)
+Requirement already satisfied: tomli>=2.2.1 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2.5.0)
+Requirement already satisfied: tomli-w>=1.2.0 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (1.2.0)
+Requirement already satisfied: platformdirs>=4.2.0 in ./.venv/lib/python3.13/site-packages (from pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (4.14.7)
+Requirement already satisfied: license-expression<31,>=30 in ./.venv/lib/python3.13/site-packages (from cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (30.4.4)
+Requirement already satisfied: packageurl-python<2,>=0.11 in ./.venv/lib/python3.13/site-packages (from cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (0.17.6)
+Requirement already satisfied: py-serializable<3.0.0,>=2.1.0 in ./.venv/lib/python3.13/site-packages (from cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2.2.0)
+Requirement already satisfied: sortedcontainers<3.0.0,>=2.4.0 in ./.venv/lib/python3.13/site-packages (from cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2.4.0)
+Requirement already satisfied: boolean.py>=4.0 in ./.venv/lib/python3.13/site-packages (from license-expression<31,>=30->cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (5.0)
+Requirement already satisfied: defusedxml<0.8.0,>=0.7.1 in ./.venv/lib/python3.13/site-packages (from py-serializable<3.0.0,>=2.1.0->cyclonedx-python-lib<12,>=5->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (0.7.1)
+Requirement already satisfied: msgpack<2.0.0,>=0.5.2 in ./.venv/lib/python3.13/site-packages (from CacheControl>=0.13.0->CacheControl[filecache]>=0.13.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (1.2.4)
+Requirement already satisfied: filelock>=3.8.0 in ./.venv/lib/python3.13/site-packages (from CacheControl[filecache]>=0.13.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (4.2.11)
+Requirement already satisfied: pip in ./.venv/lib/python3.13/site-packages (from pip-api>=0.0.28->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (25.1.1)
+Requirement already satisfied: pyparsing in ./.venv/lib/python3.13/site-packages (from pip-requirements-parser>=32.0.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (3.3.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in ./.venv/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in ./.venv/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2.8.0)
+Requirement already satisfied: certifi>=2023.5.7 in ./.venv/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit<3,>=2.9->-r security/requirements.txt (line 2)) (2026.10.23)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./.venv/lib/python3.13/site-packages (from rich->bandit<2,>=1.8->-r security/requirements.txt (line 1)) (4.3.0)
+Requirement already satisfied: mdurl~=0.1 in ./.venv/lib/python3.13/site-packages (from markdown-it-py>=2.2.0->rich->bandit<2,>=1.8->-r security/requirements.txt (line 1)) (0.1.2)
+[Pipeline] sh
++ mkdir -p test-results
+[Pipeline] sh
++ .venv/bin/python -m pytest tests/test_app.py -v --junitxml=test-results/pytest.xml
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.2.0, pluggy-1.7.0 -- /var/jenkins_home/workspace/devops-lab-3/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /var/jenkins_home/workspace/devops-lab-3
+plugins: platformdirs-4.14.7
+collecting ... collected 7 items
+
+tests/test_app.py::test_home PASSED                                      [ 14%]
+tests/test_app.py::test_health PASSED                                    [ 28%]
+tests/test_app.py::test_beta_disabled PASSED                             [ 42%]
+tests/test_app.py::test_beta_enabled PASSED                              [ 57%]
+tests/test_app.py::test_metrics_count_requests_but_ignore_scrapes PASSED [ 71%]
+tests/test_app.py::test_request_log_is_json PASSED                       [ 85%]
+tests/test_app.py::test_unknown_paths_use_one_metric_label PASSED        [100%]
+
+- generated xml file: /var/jenkins_home/workspace/devops-lab-3/test-results/pytest.xml -
+============================== 7 passed in 0.19s ===============================
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Dependency audit)
+[Pipeline] sh
++ .venv/bin/pip-audit -r app/requirements.txt
+No known vulnerabilities found
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Static analysis)
+[Pipeline] sh
++ .venv/bin/bandit -r app/ -q
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build image)
+[Pipeline] sh
++ docker build -f docker/Dockerfile -t devops-lab3-app:2 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 613B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-alpine
+#2 DONE 2.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 125B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 128B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:c5ba3deef00c7758561a0f03c26f44f10589263d40e732b8748e0d1f38f6dd89
+#5 resolve docker.io/library/python:3.12-alpine@sha256:c5ba3deef00c7758561a0f03c26f44f10589263d40e732b8748e0d1f38f6dd89 done
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 0B / 13.92MB 0.2s
+#5 sha256:8ab1992027dfd42035e1028c42f93c50180a2b01b89a2645899d7c9299fcdd5c 0B / 251B 0.2s
+#5 sha256:6d356b48c1c56cccd22e48f043c1e8ac8d79ef86f9e625b548c82014803b7830 0B / 415.54kB 0.2s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 3.15MB / 13.92MB 0.5s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 4.19MB / 13.92MB 0.6s
+#5 sha256:8ab1992027dfd42035e1028c42f93c50180a2b01b89a2645899d7c9299fcdd5c 251B / 251B 0.6s done
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 5.24MB / 13.92MB 0.9s
+#5 sha256:6d356b48c1c56cccd22e48f043c1e8ac8d79ef86f9e625b548c82014803b7830 415.54kB / 415.54kB 1.0s done
+#5 extracting sha256:6d356b48c1c56cccd22e48f043c1e8ac8d79ef86f9e625b548c82014803b7830
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 6.29MB / 13.92MB 1.2s
+#5 extracting sha256:6d356b48c1c56cccd22e48f043c1e8ac8d79ef86f9e625b548c82014803b7830 0.1s done
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 7.34MB / 13.92MB 1.5s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 8.39MB / 13.92MB 1.8s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 9.44MB / 13.92MB 2.3s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 10.49MB / 13.92MB 2.7s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 11.53MB / 13.92MB 3.2s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 12.58MB / 13.92MB 3.5s
+#5 sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 13.92MB / 13.92MB 3.7s done
+#5 extracting sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8
+#5 extracting sha256:9cee687b648e8e2f38b10079e58e752f383ebe19bea21c5a6657a29703a336f8 0.2s done
+#5 DONE 4.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:c5ba3deef00c7758561a0f03c26f44f10589263d40e732b8748e0d1f38f6dd89
+#5 extracting sha256:8ab1992027dfd42035e1028c42f93c50180a2b01b89a2645899d7c9299fcdd5c done
+#5 DONE 4.0s
+
+#6 [2/5] WORKDIR /srv/app
+#6 DONE 0.1s
+
+#7 [3/5] COPY app/requirements.txt ./requirements.txt
+#7 DONE 0.0s
+
+#8 [4/5] RUN apk upgrade --no-cache     && pip install --no-cache-dir -r requirements.txt     && addgroup -S appuser     && adduser -S -G appuser -u 10001 appuser     && mkdir -p /var/log/lab3     && chown appuser:appuser /var/log/lab3
+#8 0.832 (1/2) Upgrading krb5-libs (1.22.2-r1 -> 1.22.3-r0)
+#8 0.886 (2/2) Upgrading zlib (1.3.2-r1 -> 1.4-r0)
+#8 0.906 OK: 14.9 MiB in 38 packages
+#8 1.996 Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+#8 2.080   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#8 2.107 Collecting gunicorn==27.0.1 (from -r requirements.txt (line 2))
+#8 2.128   Downloading gunicorn-27.0.1-py3-none-any.whl.metadata (5.6 kB)
+#8 2.153 Collecting prometheus-client==0.26.0 (from -r requirements.txt (line 3))
+#8 2.174   Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)
+#8 2.196 Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.216   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#8 2.243 Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.263   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#8 2.285 Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.304   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#8 2.328 Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.349   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#8 2.404 Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.426   Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_aarch64.whl.metadata (2.7 kB)
+#8 2.453 Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#8 2.473   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#8 2.487 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#8 2.516 Downloading gunicorn-27.0.1-py3-none-any.whl (263 kB)
+#8 2.553 Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+#8 2.571 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#8 2.588 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#8 2.617 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#8 2.634 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#8 2.662 Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_aarch64.whl (23 kB)
+#8 2.677 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#8 2.705 Installing collected packages: prometheus-client, markupsafe, itsdangerous, gunicorn, click, blinker, werkzeug, jinja2, Flask
+#8 3.142 Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.1 gunicorn-27.0.1 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 prometheus-client-0.26.0 werkzeug-3.1.9
+#8 3.142 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 3.237
+#8 3.237 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#8 3.237 [notice] To update, run: pip install --upgrade pip
+#8 DONE 3.3s
+
+#9 [5/5] COPY app/ ./
+#9 DONE 0.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 exporting manifest sha256:8509bb278b73a5c83febcd97b1918767bd707f87ff20e8334dcefc2166873ac3 done
+#10 exporting config sha256:9afeac8ae4b1be406ccf505dfac3ddd7779e87e7d54e996e46ef5d12b75191c0 done
+#10 exporting attestation manifest sha256:ccd92759849500d7faef2999f3cdf0542eeea99ffddddc9e1987df2b5611e91e done
+#10 exporting manifest list sha256:2c88868cdce9c2db1254b79919f686f49e3cc2492511f36a1f452e12aa1d020a done
+#10 naming to docker.io/library/devops-lab3-app:2 done
+#10 unpacking to docker.io/library/devops-lab3-app:2
+#10 unpacking to docker.io/library/devops-lab3-app:2 0.4s done
+#10 DONE 0.7s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Image scan)
+[Pipeline] sh
++ trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress devops-lab3-app:2
+2026-11-17T21:53:46Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-17T21:53:46Z	INFO	[secret] Secret scanning is enabled
+2026-11-17T21:53:46Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-17T21:53:46Z	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+2026-11-17T21:53:47Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+2026-11-17T21:53:47Z	INFO	Detected OS	family="alpine" version="3.24.4"
+2026-11-17T21:53:47Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-11-17T21:53:47Z	INFO	Number of language-specific files	num=1
+2026-11-17T21:53:47Z	INFO	[python-pkg] Detecting vulnerabilities...
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬────────────┬─────────────────┬─────────┐
+│                                      Target                                      │    Type    │ Vulnerabilities │ Secrets │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ devops-lab3-app:2 (alpine 3.24.4)                                                │   alpine   │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/blinker-1.9.0.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/click-8.5.1.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/flask-3.1.3.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/gunicorn-27.0.1.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/itsdangerous-2.2.0.dist-info/METADATA     │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/jinja2-3.1.6.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/markupsafe-3.0.4.dist-info/METADATA       │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/pip-25.0.1.dist-info/METADATA             │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/prometheus_client-0.26.0.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.12/site-packages/werkzeug-3.1.9.dist-info/METADATA         │ python-pkg │        0        │    -    │
+└──────────────────────────────────────────────────────────────────────────────────┴────────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Tests and security checks passed
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
