@@ -1,0 +1,149 @@
+Rishav | Roll no. 2301730245
+18 November 2026
+
+docker_image.web: Refreshing state... [id=sha256:fed7e14be83cbd2661a75cdc5b872d936cf155d46c327084d30b8df19ae88d72nginx:alpine]
+docker_container.web[0]: Refreshing state... [id=d28afbe04d481a9d3fd3a480c6dde3c429bc0cc25e98336f3f9e33e4bab1e8ff]
+docker_container.web[1]: Refreshing state... [id=e44fe7ae2cf8c311fd82dd1ba54e309403e7e485fb3111219e6f1175c7e02f73]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # docker_container.web[2] will be created
+  + resource "docker_container" "web" {
+      + attach                                      = false
+      + bridge                                      = (known after apply)
+      + command                                     = (known after apply)
+      + container_logs                              = (known after apply)
+      + container_read_refresh_timeout_milliseconds = 15000
+      + entrypoint                                  = (known after apply)
+      + env                                         = (known after apply)
+      + exit_code                                   = (known after apply)
+      + hostname                                    = (known after apply)
+      + id                                          = (known after apply)
+      + image                                       = "sha256:fed7e14be83cbd2661a75cdc5b872d936cf155d46c327084d30b8df19ae88d72"
+      + init                                        = (known after apply)
+      + ipc_mode                                    = (known after apply)
+      + log_driver                                  = (known after apply)
+      + logs                                        = false
+      + memory_reservation                          = 0
+      + must_run                                    = true
+      + name                                        = "rishav-lab3-web-3"
+      + network_data                                = (known after apply)
+      + network_mode                                = "bridge"
+      + read_only                                   = false
+      + remove_volumes                              = true
+      + restart                                     = "no"
+      + rm                                          = false
+      + runtime                                     = (known after apply)
+      + security_opts                               = (known after apply)
+      + shm_size                                    = (known after apply)
+      + start                                       = true
+      + stdin_open                                  = false
+      + stop_signal                                 = (known after apply)
+      + stop_timeout                                = (known after apply)
+      + tty                                         = false
+      + wait                                        = false
+      + wait_timeout                                = 60
+
+      + healthcheck (known after apply)
+
+      + labels (known after apply)
+
+      + ports {
+          + external = 8084
+          + internal = 80
+          + ip       = "127.0.0.1"
+          + protocol = "tcp"
+        }
+
+      + upload {
+          + content        = "<h1>Rishav - DevOps Lab 3</h1><p>Roll no. 2301730245 | Replica 3</p>"
+          + executable     = false
+          + file           = "/usr/share/nginx/html/index.html"
+            # (4 unchanged attributes hidden)
+        }
+    }
+
+  # docker_container.web[3] will be created
+  + resource "docker_container" "web" {
+      + attach                                      = false
+      + bridge                                      = (known after apply)
+      + command                                     = (known after apply)
+      + container_logs                              = (known after apply)
+      + container_read_refresh_timeout_milliseconds = 15000
+      + entrypoint                                  = (known after apply)
+      + env                                         = (known after apply)
+      + exit_code                                   = (known after apply)
+      + hostname                                    = (known after apply)
+      + id                                          = (known after apply)
+      + image                                       = "sha256:fed7e14be83cbd2661a75cdc5b872d936cf155d46c327084d30b8df19ae88d72"
+      + init                                        = (known after apply)
+      + ipc_mode                                    = (known after apply)
+      + log_driver                                  = (known after apply)
+      + logs                                        = false
+      + memory_reservation                          = 0
+      + must_run                                    = true
+      + name                                        = "rishav-lab3-web-4"
+      + network_data                                = (known after apply)
+      + network_mode                                = "bridge"
+      + read_only                                   = false
+      + remove_volumes                              = true
+      + restart                                     = "no"
+      + rm                                          = false
+      + runtime                                     = (known after apply)
+      + security_opts                               = (known after apply)
+      + shm_size                                    = (known after apply)
+      + start                                       = true
+      + stdin_open                                  = false
+      + stop_signal                                 = (known after apply)
+      + stop_timeout                                = (known after apply)
+      + tty                                         = false
+      + wait                                        = false
+      + wait_timeout                                = 60
+
+      + healthcheck (known after apply)
+
+      + labels (known after apply)
+
+      + ports {
+          + external = 8085
+          + internal = 80
+          + ip       = "127.0.0.1"
+          + protocol = "tcp"
+        }
+
+      + upload {
+          + content        = "<h1>Rishav - DevOps Lab 3</h1><p>Roll no. 2301730245 | Replica 4</p>"
+          + executable     = false
+          + file           = "/usr/share/nginx/html/index.html"
+            # (4 unchanged attributes hidden)
+        }
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  ~ urls = [
+        # (1 unchanged element hidden)
+        "http://localhost:8083",
+      + "http://localhost:8084",
+      + "http://localhost:8085",
+    ]
+docker_container.web[3]: Creating...
+docker_container.web[2]: Creating...
+docker_container.web[3]: Creation complete after 1s [id=129a7754f6e501749b93b822d2be006823b0f711b33cfb91ebec750299046521]
+docker_container.web[2]: Creation complete after 1s [id=7b266400797a8872c26f795da8ecc831f70ef93370a9fceb5b1d9184c81669ec]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+urls = [
+  "http://localhost:8082",
+  "http://localhost:8083",
+  "http://localhost:8084",
+  "http://localhost:8085",
+]

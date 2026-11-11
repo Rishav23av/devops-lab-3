@@ -1,0 +1,25 @@
+DevOps Lab 3
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker compose -f monitoring/docker-compose.yml ps
+NAME                                  IMAGE                    COMMAND                  SERVICE      CREATED         STATUS         PORTS
+rishav-lab3-monitoring-app-1          devops-lab3-app:3.0.0    "gunicorn --bind 0.0…"   app          4 minutes ago   Up 4 minutes   127.0.0.1:5003->5000/tcp
+rishav-lab3-monitoring-grafana-1      grafana/grafana:12.1.1   "/run.sh"                grafana      4 minutes ago   Up 4 minutes   127.0.0.1:3300->3000/tcp
+rishav-lab3-monitoring-prometheus-1   prom/prometheus:v3.5.0   "/bin/prometheus --c…"   prometheus   4 minutes ago   Up 4 minutes   127.0.0.1:9090->9090/tcp
+
+
+$ curl --fail http://localhost:5003/health
+{"status":"UP","version":"3.0.0"}
+
+
+$ curl --fail 'http://localhost:9090/api/v1/query?query=up'
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","instance":"localhost:9090","job":"prometheus"},"value":[1794951815.957,"1"]},{"metric":{"__name__":"up","instance":"app:5000","job":"lab3-app"},"value":[1794951815.957,"1"]}]}}
+
+
+$ curl --fail http://localhost:3300/api/health
+{
+  "database": "ok",
+  "version": "12.1.1",
+  "commit": "df5de8219b41d1e639e003bf5f3a85913761d167"
+}

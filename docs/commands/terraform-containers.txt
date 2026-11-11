@@ -1,0 +1,44 @@
+DevOps Lab 3
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ terraform -chdir=terraform validate
+Success! The configuration is valid.
+
+
+$ terraform -chdir=terraform output -json
+{
+  "urls": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string",
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "http://localhost:8082",
+      "http://localhost:8083",
+      "http://localhost:8084",
+      "http://localhost:8085"
+    ]
+  }
+}
+
+
+$ docker ps --filter name=rishav-lab3-web-
+rishav-lab3-web-4 | fed7e14be83c | 127.0.0.1:8085->80/tcp
+rishav-lab3-web-3 | fed7e14be83c | 127.0.0.1:8084->80/tcp
+rishav-lab3-web-2 | fed7e14be83c | 127.0.0.1:8083->80/tcp
+rishav-lab3-web-1 | fed7e14be83c | 127.0.0.1:8082->80/tcp
+
+
+$ curl --fail http://localhost:8082/
+<h1>Rishav - DevOps Lab 3</h1><p>Roll no. 2301730245 | Replica 1</p>
+
+
+$ curl --fail http://localhost:8085/
+<h1>Rishav - DevOps Lab 3</h1><p>Roll no. 2301730245 | Replica 4</p>
