@@ -1,25 +1,13 @@
-Local checks - 18 November 2026
-Rishav | 2301730245
+Submission checks - 18 November 2026
+Rishav | Roll no. 2301730245
 
-Python 3.14.5: 7 unit tests passed.
-pip-audit: no known vulnerabilities in the runtime requirements.
-Bandit: no findings in app/.
-Docker: application image built and monitoring stack started.
-Prometheus: lab3-app target reported UP.
-Grafana: health API reported database ok.
-Feature flag: /beta returned 404 by default and 200 with FEATURE_BETA=true.
-Selenium: health and enabled beta checks passed in headless Chrome.
-Screenshot: screenshots/beta-browser.png
-ApacheBench: 1000 requests, concurrency 20, 0 failed requests.
-Local load result: 1425.79 requests/second, p95 17 ms.
-Ansible: local and Docker-node plays completed with no failures.
-Terraform 1.17.2: init, fmt -check and validate passed.
-GitHub Actions: Python 3.12 tests, dependency audit, Bandit and Docker build passed.
-ELK: Logstash ingested the application logs; Kibana displayed the events.
-Terraform: created two nginx replicas, then scaled to four.
-Ansible second run: changed=0 and failed=0 on both hosts.
-Jenkins build 1 blocked the Debian image on high/critical findings.
-The Dockerfile now uses Alpine and updates its packages.
-Jenkins build 2 passed pip-audit, Bandit and the unchanged strict Trivy gate.
-Docker Compose started the updated app and passed its health check.
-Nine real run screenshots and seven question-wise PDF reports are included.
+7 application tests passed.
+Ansible playbook and unchanged second run verified.
+Terraform created two replicas and scaled to four.
+Prometheus, Grafana and ELK log ingestion verified.
+Strict Jenkins security scan first blocked the Debian image.
+Alpine with updated packages passed the unchanged high/critical image gate.
+Feature flag, Selenium and the 1000-request load run verified.
+
+9 real screenshots; 7 question-wise PDF reports.
+The screenshot and command-output dates record actual runs.

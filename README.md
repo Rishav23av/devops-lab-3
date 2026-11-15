@@ -53,6 +53,8 @@ are in [docs/lab-record.md](docs/lab-record.md). The Jenkins script is
 
 **Reports and screenshots**
 
+[Submission map](docs/submission-checklist.md)
+
 [Question-wise PDF reports](reports/README.md) | [Run screenshots](docs/screenshots/README.md) | [Command output](docs/commands/)
 
 ![Lab 3 run](docs/screenshots/q3-grafana-dashboard.jpg)
