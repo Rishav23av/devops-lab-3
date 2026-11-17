@@ -2,40 +2,40 @@
 
 Rishav | Roll no. 2301730245
 
-Captured from the local lab runs. The browser pages show the running tools and apps. Screenshots headed "Saved command output" show the stdout saved in [docs/commands](../commands/) from those runs.
+Captured from the actual local runs. Saved-command-output pages show the stdout kept in [command records](../commands/).
 
-**Beta browser**
+**beta browser**
 
-![Beta browser](beta-browser.png)
+![beta browser](beta-browser.png)
 
-**Ansible idempotency**
+**q1 ansible idempotency**
 
-![Ansible idempotency](q1-ansible-idempotency.jpg)
+![q1 ansible idempotency](q1-ansible-idempotency.jpg)
 
-**Terraform containers**
+**q2 terraform containers**
 
-![Terraform containers](q2-terraform-containers.jpg)
+![q2 terraform containers](q2-terraform-containers.jpg)
 
-**App response**
+**q3 app response**
 
-![App response](q3-app-response.jpg)
+![q3 app response](q3-app-response.jpg)
 
-**Grafana dashboard**
+**q3 grafana dashboard**
 
-![Grafana dashboard](q3-grafana-dashboard.jpg)
+![q3 grafana dashboard](q3-grafana-dashboard.jpg)
 
-**Prometheus targets**
+**q3 prometheus targets**
 
-![Prometheus targets](q3-prometheus-targets.jpg)
+![q3 prometheus targets](q3-prometheus-targets.jpg)
 
-**Kibana discover**
+**q4 kibana discover**
 
-![Kibana discover](q4-kibana-discover.jpg)
+![q4 kibana discover](q4-kibana-discover.jpg)
 
-**Jenkins security stages**
+**q5 jenkins security stages**
 
-![Jenkins security stages](q5-jenkins-security-stages.jpg)
+![q5 jenkins security stages](q5-jenkins-security-stages.jpg)
 
-**Load test**
+**q6 load test**
 
-![Load test](q6-load-test.jpg)
+![q6 load test](q6-load-test.jpg)
