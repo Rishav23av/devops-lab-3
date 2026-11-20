@@ -1,0 +1,23 @@
+DevOps Lab 3
+Rishav | Roll no. 2301730245
+Additional feature-flag and Selenium verification: 20 November 2026
+
+$ docker run -d --name rishav-lab3-flag-false-333c5b --label devops.lab=3 -p 127.0.0.1::5000 -e FEATURE_BETA=false devops-lab3-app:3.0.0
+ceaa4b0dcfbdae3bd5444b40868c7545d9ed4e96d1366cf52db357a6c7d955df
+
+GET http://127.0.0.1:52869/beta
+HTTP 404
+{"enabled":false,"feature":"beta"}
+
+$ docker run -d --name rishav-lab3-flag-true-e50a6c --label devops.lab=3 -p 127.0.0.1::5000 -e FEATURE_BETA=true devops-lab3-app:3.0.0
+0bb7bf698e989de1ede97ad576a15f1505198b773e718282794374c7e90832c0
+
+GET http://127.0.0.1:52877/beta
+HTTP 200
+{"enabled":true,"feature":"beta"}
+
+Selenium: tests/selenium_check.py http://127.0.0.1:52877
+Health and enabled beta feature passed in Chrome.
+Exit status: 0
+
+Result: both flag states and headless Chrome checks passed. Temporary containers removed.

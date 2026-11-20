@@ -1,0 +1,5 @@
+{"timestamp": "2026-11-20T13:35:58.916579+00:00", "method": "GET", "route": "/health", "status": 200, "duration_seconds": 0.00014362501678988338}
+{"timestamp": "2026-11-20T13:35:58.918680+00:00", "method": "GET", "route": "/beta", "status": 200, "duration_seconds": 5.091700586490333e-05}
+{"timestamp": "2026-11-20T13:36:00.903152+00:00", "method": "GET", "route": "/health", "status": 200, "duration_seconds": 8.645799243822694e-05}
+{"timestamp": "2026-11-20T13:36:01.084595+00:00", "method": "GET", "route": "unmatched", "status": 404, "duration_seconds": 0.0004927919944748282}
+{"timestamp": "2026-11-20T13:36:01.099203+00:00", "method": "GET", "route": "/beta", "status": 200, "duration_seconds": 0.00014570800703950226}
