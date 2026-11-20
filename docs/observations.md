@@ -12,3 +12,5 @@ Rishav | Roll no. 2301730245
 - ApacheBench completed 1000 requests with no failures. These timings describe this local run, rather than a production capacity result.
 
 See [screenshots](screenshots/README.md), [command output](commands/) and [reports](../reports/README.md).
+
+Additional verification on 20 November 2026 checked both beta-flag states in isolated containers. Disabled returned 404 and enabled returned 200. Headless Chrome checked health and the enabled feature successfully; its output, JSON request events and dated screenshot are retained. The original load run targeted port 5003; the enabled-beta example uses port 5004.

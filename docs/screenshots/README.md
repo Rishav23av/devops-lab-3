@@ -39,3 +39,7 @@ Captured from the actual local runs. Saved-command-output pages show the stdout 
 **q6 load test**
 
 ![q6 load test](q6-load-test.jpg)
+
+**Additional Selenium run - 20 November 2026**
+
+![Enabled beta response from headless Chrome](beta-browser-20261120.png)

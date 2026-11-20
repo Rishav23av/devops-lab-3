@@ -1,15 +1,17 @@
-# Lab 3 submission map
+Lab 3 submission map
 
 Rishav | Roll no. 2301730245
 
-| Question | Report |
-|---|---|
-| Q1 - Ansible configuration | [q1-ansible-configuration.pdf](../reports/q1-ansible-configuration.pdf) |
-| Q2 - Terraform infrastructure | [q2-terraform-iac.pdf](../reports/q2-terraform-iac.pdf) |
-| Q3 - Prometheus and Grafana | [q3-prometheus-grafana.pdf](../reports/q3-prometheus-grafana.pdf) |
-| Q4 - ELK log collection and parsing | [q4-elk-centralized-logging.pdf](../reports/q4-elk-centralized-logging.pdf) |
-| Q5 - DevSecOps checks | [q5-devsecops-pipeline.pdf](../reports/q5-devsecops-pipeline.pdf) |
-| Q6 - Feature flags, load and Selenium tests | [q6-feature-flags-testing.pdf](../reports/q6-feature-flags-testing.pdf) |
-| Q7 - Architecture and findings report | [q7-monitoring-devsecops-report.pdf](../reports/q7-monitoring-devsecops-report.pdf) |
+The numbering below matches the current upload form.
 
-Configuration files, complete command records, observations and screenshots are included in the repository.
+| Slot | File |
+|---|---|
+| 1 | [Infrastructure and application configuration with Ansible](../submission/01-Ansible-Configuration-Rishav-2301730245.pdf) |
+| 2 | [Provision scalable infrastructure with Terraform](../submission/02-Terraform-Infrastructure-Rishav-2301730245.pdf) |
+| 3 | [Centralized logging with the ELK stack](../submission/03-ELK-Centralized-Logging-Rishav-2301730245.pdf) |
+| 4 | [Integrate security into the CI/CD pipeline](../submission/04-DevSecOps-Pipeline-Rishav-2301730245.pdf) |
+| 5 | [Monitoring with Prometheus and Grafana](../submission/05-Prometheus-Grafana-Rishav-2301730245.pdf) |
+| 6 | [Feature flags, load testing and Selenium](../submission/06-Feature-Flags-Load-Selenium-Rishav-2301730245.pdf) |
+| 7 | [Monitoring, logging and DevSecOps report](../submission/07-Monitoring-Logging-DevSecOps-Report-Rishav-2301730245.pdf) |
+
+Configuration files, dashboard JSON, command logs and original screenshots are stored alongside the reports. The earlier question-wise PDFs remain in reports/ as original records.
